@@ -73,12 +73,12 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -207,6 +207,7 @@ CSRF_TRUSTED_ORIGINS = [
     'localhost:3000',
     'http://conquermarket.34018.net:3000',
     'http://conquermarket.34018.net:8000',
+    '*'
 ]
 
 ALLOWED_HOSTS = [
@@ -218,6 +219,12 @@ ALLOWED_HOSTS = [
     'localhost:3000',
     'http://conquermarket.34018.net:3000',
     'http://conquermarket.34018.net:8000',
+    '*'
+
 ]
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
