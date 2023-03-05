@@ -65,7 +65,7 @@ class MyProductsViewSet(APIView):
         for product in buyer.products.all():
             product_data = ProductSerializer(product)
             product_data = product_data.data
-            product_data['image'] = f'http://localhost:8000{product_data["image"]}'
+            product_data['image'] = f'http://conquermarket.34018.net:8000{product_data["image"]}'
             data['products'].append(product_data)
 
         return Response(data)
