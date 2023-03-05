@@ -194,6 +194,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8000',
     'http://localhost:3000',
     'http://conquermarket.38018.net',
+    'http://conquermarket.34018.net:3000',
+    'http://conquermarket.34018.net:8000',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -203,6 +205,8 @@ CSRF_TRUSTED_ORIGINS = [
     'conquermarket.38018.net',
     'localhost:8000',
     'localhost:3000',
+    'http://conquermarket.34018.net:3000',
+    'http://conquermarket.34018.net:8000',
 ]
 
 ALLOWED_HOSTS = [
@@ -212,6 +216,8 @@ ALLOWED_HOSTS = [
     'conquermarket.38018.net',
     'localhost:8000',
     'localhost:3000',
+    'http://conquermarket.34018.net:3000',
+    'http://conquermarket.34018.net:8000',
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
