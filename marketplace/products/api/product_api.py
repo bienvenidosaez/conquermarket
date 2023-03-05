@@ -33,7 +33,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def get_image_url(self, product):
         if product.image:
-            return f'http://localhost:8000/media/{product.image}'
+            return f'http://conquermarket.34018.net:8000/media/{product.image}'
         return ''
 
 
