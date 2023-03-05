@@ -1,10 +1,6 @@
-![Python 3.6](https://img.shields.io/badge/Python-3.6-blue.svg)
-![Django 4.0](https://img.shields.io/badge/Django-3-blue.svg)
-[![PyPI version](https://badge.fury.io/py/django-eth-events.svg)](https://badge.fury.io/py/django-eth-events)
-![Docker](https://img.shields.io/badge/docker-blue.svg)
+<h1 align="center">Conquer Block Marketplace</h1>
+<h3 align="center">Prueba técnica de Bienvenido Sáez Muelas</h3>
 
-Proyecto base Django 4.0 y React JS Dockerizado
-
-
-Contar las líneas de código escritas
-find . -type d -name node_modules -prune -o -type d -name migrations -prune -o -type d -name partials -prune -o -type d -name layout -prune -o -type d -name static -prune -o -type d -name assets -prune -o -name '*.html' -o -name '*.py' -o -name '*.js' | xargs wc -l
+<br>
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"><img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS3"> <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="HTML5">  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&amp;logo=javascript&amp;logoColor=%23F7DF1E" alt="JavaScript">  <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&amp;logo=python&amp;logoColor=ffdd54" alt="Python">  <img src="https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&amp;logo=gnu-bash&amp;logoColor=white" alt="Shell Script"> <img src="https://img.shields.io/badge/DigitalOcean-%230167ff.svg?style=for-the-badge&amp;logo=digitalOcean&amp;logoColor=white" alt="DigitalOcean"><img src="https://img.shields.io/badge/chakra-%234ED1C5.svg?style=for-the-badge&amp;logo=chakraui&amp;logoColor=white" alt="Chakra"> <img src="https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&amp;logo=npm&amp;logoColor=white" alt="NPM"> <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&amp;logo=react&amp;logoColor=%2361DAFB" alt="React"> <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&amp;logo=react-router&amp;logoColor=white" alt="React Router"> <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&amp;logo=postman&amp;logoColor=white" alt="Postman"> <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&amp;logo=docker&amp;logoColor=white" alt="Docker"> </p>
