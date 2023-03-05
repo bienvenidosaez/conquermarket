@@ -1,0 +1,29 @@
+django-crispy-forms==1.14.0
+# django-easy-select2==1.5.7
+django_extensions==3.1.5
+
+requests==2.28.1
+django_countries==7.3.2
+django-ckeditor==6.5.0
+
+# DRF
+djangorestframework==3.14
+markdown==3.4.1
+django-filter==22.1
+django-cors-headers==3.13.0
+
+pandas==1.5.2
+
+django-rosetta==0.9.8
+
+
+django-multiupload==0.6.1
+# django-attachments==1.9.1
+
+# # Celery
+# redis==4.3.4
+# django-redis==5.2.0
+
+# celery==5.2.7
+# flower==1.2
+# tornado==5.1.1

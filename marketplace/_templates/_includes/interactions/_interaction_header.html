@@ -1,0 +1,135 @@
+<div class="card mb-8">
+    <div class="card-header">
+      <div>
+        <div class="card-title fs-3 fw-bold mt-4">{{ interaction.name }} ({{ interaction.ref }})</div>
+        <div class="mb-4">{{ interaction.interaction_type.name }}</div>
+      </div>
+      <div>
+        <div>
+          <div class="fs-7 mt-4"><span><i class="bi bi{% if interaction.approved == 'Aprobado'%}-check-circle-fill{% elif interaction.approved == 'No aprobado'%}-exclamation-circle-fill{% elif interaction.approved == 'En revisión' or interaction.approved == 'Pendiente completar' %}-pause-circle-fill{%endif%}" style="color:{% if interaction.approved == 'Aprobado'%}#50cd89{% elif interaction.approved == 'No aprobado'%}#f1416c{% elif interaction.approved == 'En revisión' or interaction.approved == 'Pendiente completar' %}#ffc700{%endif%};"></i></span>&nbsp;<span class="ans-evaluator">{{ interaction.approved }}</span></div>
+          <div class="fs-7 mt-4 mb-4"><span class="badge badge-{{ interaction.get_phase_color }}" style="float:right;">{{ interaction.get_phase_display }}</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          {% include '_includes/FormErrors.html' %}
+        </div>
+        <div class="row mb-1">
+          <div class="col col-md-4">
+            <div class="row mb-1">
+              <!--begin::Col-->
+              <div class="col-xl-5">
+                <div class="fs-6 fw-semibold"><span class="badge badge-secondary text-wrap">Agente</span>
+                </div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-xl-7">
+                <div class="fs-6">
+                  <div class="row mb-8" style="display:inline;">
+                    <span>{{ interaction.company.name }} ({{ interaction.company.ref }})</span>
+                  </div>
+                </div>
+              </div>
+              <!--end::Col-->
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row mb-1">
+              <!--begin::Col-->
+              <div class="col-xl-5">
+                <div class="fs-6 fw-semibold"><span class="badge badge-secondary text-wrap">Fecha de inicio de la interacción</span></div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-xl-7">
+                <div class="fs-6">
+                  <span>{{ interaction.date }}</span>
+                </div>
+              </div>
+              <!--end::Col-->
+            </div>
+          </div>
+          <div class="col col-md-4">
+            <div class="row mb-1">
+              <!--begin::Col-->
+              <div class="col-xl-5">
+                <div class="fs-6 fw-semibold"><span class="badge badge-secondary text-wrap">Fecha de creación</span></div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-xl-7">
+                <div class="fs-6">
+                  <span>{{ interaction.created|date }}</span>
+                </div>
+              </div>
+              <!--end::Col-->
+            </div>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col col-md-4">
+            <div class="row mb-1">
+              <!--begin::Col-->
+              <div class="col-xl-5">
+                <div class="fs-6 fw-semibold"><span class="badge badge-secondary text-wrap">Acción pendiente</span></div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-xl-7">
+                <div class="fs-6">
+                  <span>{{ interaction.get_status_display }}</span>
+                </div>
+              </div>
+              <!--end::Col-->
+            </div>
+            <div class="row mb-1">
+              <!--begin::Col-->
+              <div class="col-xl-5">
+                <div class="fs-6 fw-semibold"><span class="badge badge-secondary text-wrap">División</span></div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-xl-7">
+                <div class="fs-6">
+                  <span>{{ interaction.get_division_display }}</span>
+                </div>
+              </div>
+              <!--end::Col-->
+            </div>
+            <div class="row mb-1">
+              <!--begin::Col-->
+              <div class="col-xl-5">
+                <div class="fs-6 fw-semibold"><span class="badge badge-secondary text-wrap">Importe</span></div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-xl-7">
+                <div class="fs-6">
+                  <span>{{ interaction.money }}€</span>
+                </div>
+              </div>
+              <!--end::Col-->
+            </div>
+          </div>
+          <div class="col col-md-8">
+            <div class="row mb-1">
+              <!--begin::Col-->
+              <div class="col-xl-3">
+                <div class="fs-6 fw-semibold"><span class="badge badge-secondary text-wrap">Descripción</span>
+                </div>
+              </div>
+              <!--end::Col-->
+              <!--begin::Col-->
+              <div class="col-xl-9">
+                <div class="fs-6" style="display:contents;">{{ interaction.description|default_if_none:""|safe }}</div>
+              </div>
+              <!--end::Col-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

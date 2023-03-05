@@ -1,0 +1,38 @@
+version: "3"
+
+volumes:
+  marketplace_local_postgres_data: {}
+  marketplace_local_postgres_data_backups: {}
+
+services:
+  django: &django
+    build:
+      context: .
+      dockerfile: ./compose/dev/django/Dockerfile
+    image: marketplace_dev_django
+    depends_on:
+      - postgres-marketplace
+      # - redis
+    volumes:
+      - .:/app
+      - ./media:/app/media
+      - ./marketplace-media:/marketplace-media
+    env_file:
+      - ./.envs/.dev/.django
+      - ./.envs/.dev/.postgres
+      - ./.envs/.dev/.email
+      - ./.envs/.dev/.ubuntu
+    ports:
+      - "8000:8000"
+    command: /start
+
+  postgres-marketplace:
+    build:
+      context: .
+      dockerfile: ./compose/dev/postgres/Dockerfile
+    image: marketplace_local_postgres
+    volumes:
+      - marketplace_local_postgres_data:/var/lib/postgresql/data
+      - marketplace_local_postgres_data_backups:/backups
+    env_file:
+      - ./.envs/.dev/.postgres
