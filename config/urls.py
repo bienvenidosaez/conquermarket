@@ -11,7 +11,8 @@ from rest_framework import routers
 from marketplace.products.api.product_api import (
     ProductViewSet,
     MyProductsViewSet,
-    CreateProductView
+    CreateProductView,
+    Reset
 )
 from marketplace.buyers.api.buyer_api import BuyerViewSet
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('myproducts/<str:buyer_uuid>/', MyProductsViewSet.as_view()),
     path('createproduct/', CreateProductView.as_view()),
+    path('reset/', Reset.as_view()),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

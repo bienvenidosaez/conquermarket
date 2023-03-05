@@ -17,6 +17,8 @@ from marketplace.products.models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
+
     class Meta:
         model = Product
         fields = [
@@ -26,22 +28,27 @@ class ProductSerializer(serializers.ModelSerializer):
             'image',
             'price',
             'purchased',
+            'image_url'
         ]
+
+    def get_image_url(self, product):
+        if product.image:
+            return f'http://localhost:8000/media/{product.image}'
+        return ''
 
 
 class ProductViewSet(viewsets.ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.filter(purchased=False)
     serializer_class = ProductSerializer
 
 
-class MyProductsViewSet(generics.ListAPIView):
-    serializer_class = ProductSerializer
+# class MyProductsViewSet(generics.ListAPIView):
+#     serializer_class = ProductSerializer
 
-    def get_queryset(self):
-        # buyer_uuid = self.kwargs['buyer']
-        # buyer = Buyer.objects.get(uuid=buyer_uuid)
-        # return buyer.products.all()
-        return Product.objects.all()
+#     def get_queryset(self):
+#         buyer_uuid = self.kwargs['buyer_uuid']
+#         buyer = Buyer.objects.get(uuid=buyer_uuid)
+#         return buyer.products.all()
 
 
 class MyProductsViewSet(APIView):
@@ -57,7 +64,9 @@ class MyProductsViewSet(APIView):
 
         for product in buyer.products.all():
             product_data = ProductSerializer(product)
-            data['products'].append(product_data.data)
+            product_data = product_data.data
+            product_data['image'] = f'http://localhost:8000{product_data["image"]}'
+            data['products'].append(product_data)
 
         return Response(data)
 
@@ -71,6 +80,8 @@ class MyProductsViewSet(APIView):
         product.purchased = True
         product.save()
         buyer.products.add(product)
+        buyer.coins = buyer.coins - product.price
+        buyer.save()
         return Response(status=201)
 
 
@@ -85,3 +96,11 @@ class CreateProductView(APIView):
         else:
             print('error', products_serializer.errors)
             return Response(products_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class Reset(APIView):
+
+    def get(self, request, format=None):
+        Buyer.objects.all().delete()
+        Product.objects.all().update(purchased=False)
+        return Response(status=201)
