@@ -280,3 +280,4 @@ node_modules
 ./assets
 marketplace/assets
 marketplace/old_templates
+front/node_modules
